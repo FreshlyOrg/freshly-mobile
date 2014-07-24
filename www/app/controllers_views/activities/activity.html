@@ -1,0 +1,56 @@
+<div class="list card" id="{{activity._id}}">
+  <div class="item" ng-click="toggleActivity(activity)">
+    <label>
+      <input type="text" placeholder="Name" ng-readonly="activity._id !== editing" ng-model="activity.name" />
+    </label>
+  </div>
+  <div class="item item-body" ng-if="viewActivity === activity._id">
+    <div class="item-image">
+      <img class="full-image" style="width:50%" src="http://fresh.ly/api/activities/{{activity._id}}/images/0" />
+    </div>
+    
+    <input type="file" file-model="imageData.myFile"/>
+    <button ng-click="uploadFile(activity)">upload me</button>
+
+    <label class="item item-input">
+      <span class="input-label">Description</span>
+      <input type="text" placeholder="Description" ng-readonly="activity._id !== editing" ng-model="activity.description"/>
+    </label>
+    <label class="item item-input">
+      <span class="input-label">Cost</span>
+      <input type="text" placeholder="Cost" ng-readonly="activity._id !== editing" ng-model="activity.cost"/>
+    </label>
+    <label class="item item-input">
+      <span class="input-label">Time</span>
+      <input type="text" placeholder="Time" ng-readonly="activity._id !== editing" ng-model="activity.time"/>
+    </label>
+    <label class="item item-input" ng-if="activity._id === editing">
+      <span class="input-label">New Tag</span>
+      <input type="text" placeholder="New Tag" ng-model="activity.newTag"/>
+    </label>
+    <button class="button button-full" ng-click="addTag(activity)" ng-if="activity._id === editing">Add Tag</button>
+
+    <div class="list" ng-if="activity.tags.length > 0">
+      <div class="item item-divider">
+        Tags
+      </div>
+      <div class="item" ng-repeat="tag in activity.tags">
+        <span ng-click="removeTag(activity,tag)">{{tag}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="item tabs tabs-secondary tabs-icon-center" ng-if="viewActivity === activity._id">
+    <button class="tab-item" ng-if="activity._id !== editing" ng-click="editActivity(activity)">
+      <i class="icon ion-edit"></i>
+    </button>
+    <button class="tab-item" ng-if="activity._id === editing" ng-click="saveEdit(activity)">
+      <i class="icon ion-archive"></i>
+    </button>
+    <button class="tab-item" ng-if="activity._id === editing" ng-click="cancelEdit(activity)">
+      <i class="icon ion-arrow-return-left"></i>
+    </button>
+    <button class="tab-item" ng-if="activity._id !== editing" ng-click="deleteActivity(activity)">
+      <i class="icon ion-trash-a"></i>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<ion-view title="List">
+  <ion-content class="has-header">
+    <label class="item item-input">
+      <i class="icon ion-search placeholder-icon"></i>
+      <input type="text" placeholder="Search" ng-model="searchText" />
+    </label>
+    <ul class="list">
+      <li ng-repeat="activity in activities | filter:searchText | orderBy:'name'">
+        <ng-activity></ng-activity>
+      </li>
+    </ul>
+  </ion-content>
+</ion-view>

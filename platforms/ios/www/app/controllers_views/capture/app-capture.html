@@ -1,0 +1,48 @@
+<ion-view title="Capture">
+  <ion-content class="has-header padding">
+
+    <!-- Displays currentPhoto after taken -->
+    <img class="capturePhoto">
+    </br>
+
+    <!-- Form to receive user-entered name and/or description -->
+    <div class="list">
+      <div class="row">
+        <label class="item item-input col">
+          <input type="text" placeholder="Name" ng-model="activity.name"/>
+        </label>
+      </div>
+
+      <div class="row">
+        <label class="item item-input col">
+          <input type="text" placeholder="{{ activity.address }}" ng-model="activity.address"/>
+        </label>
+      </div>
+
+      <div class="row">
+        <label class="item item-input col">
+          <input type="text" placeholder="Description" ng-model="activity.description"/>
+        </label>
+      </div>
+
+      <div class="row">
+        <label class="item item-input col">
+          <input type="text" placeholder="Cost" ng-model="activity.cost"/>
+        </label>
+
+        <label class="item item-input col">
+          <input type="text" placeholder="Time" ng-model="activity.time"/>
+        </label>
+      </div>
+    </div>
+
+    <!-- Button that allows for choosing photo from album or taking phone -->
+    <!-- Runs readURL (which is in a script in index.html) when photo selected -->
+    <div style="position:relative">
+      <input type="file" onchange="readURL(this)" file-model="imageData.myFile"/>
+      <button class="button ion-android-camera uploadWrapper"> Take Photo</button>
+      <!-- Button that saves photo to db and returns to map -->
+      <button ng-click="createPin()" class="button button-positive ion-android-location"> Create Pin</button>
+    </div>
+  </ion-content scroll="false">
+</ion-view>

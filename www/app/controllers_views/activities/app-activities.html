@@ -1,7 +1,9 @@
   <ion-content class="top-spacing-activities">
     <label class="item item-input">
-      <i class="icon ion-search placeholder-icon"></i>
-      <input type="text" placeholder="Search" ng-model="searchText" />
+    <div id="search-activities">
+      <img src="https://d3hd2w1962vi3.cloudfront.net/c8573368-43a0-4fa7-85cd-3812cdc7a252/magnifiernew.png">
+    </div>
+      <input type="text" placeholder="Search" style="color: #444;font-weight: 350;font-size: 20px;" ng-model="searchText" />
     </label>
     <ul class="list">
       <li ng-repeat="activity in activities | filter:searchText | orderBy:'name'">

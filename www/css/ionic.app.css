@@ -6,7 +6,7 @@ For example, you might change some of the default colors:
 
 $light:                           #fff !default;
 $stable:                          #f8f8f8 !default;
-$positive:                        #4a87ee !default;
+$positive:                        #2A94D6 !default;
 $calm:                            #43cee6 !default;
 $balanced:                        #66cc33 !default;
 $energized:                       #f0b840 !default;
@@ -4655,7 +4655,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   display: block;
   padding-top: 2px;
   height: 34px;
-  color: #111;
+  color: #444;
   vertical-align: middle;
   font-size: 14px;
   line-height: 16px; }

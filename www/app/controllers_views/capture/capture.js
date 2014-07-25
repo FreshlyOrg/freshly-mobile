@@ -20,7 +20,9 @@ angular.module('freshly.capture', [])
   $scope.activity = {};
 
   // Object that holds photo to be taken
-  $scope.imageData = {};
+  $scope.imageData = {
+    imageURI: 'http://www.j2-con.com/sites/default/files/default_images/placeholder.jpg'
+  };
 
   // Default values on Capture page load
   $scope.activity.address = "Loading...";

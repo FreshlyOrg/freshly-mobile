@@ -153,7 +153,7 @@ angular.module('freshly.capture', [])
       // If there is an image send to server
       if (imageURI) {
         // sendImage(imageURI, response.data.activity[0]._id)
-        Activities.addImage(image, response.data.activity[0]._id).then(function(result) {
+        Activities.addImage(imageURI, response.data.activity[0]._id).then(function(result) {
           console.log('Successfully uploaded activity image');
         }).catch(function(err) {
           console.log(err);

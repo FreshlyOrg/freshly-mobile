@@ -54,18 +54,8 @@ angular.module('freshly.servicesActivities', [])
 
       return q.promise;
     },
-    updateImage: function(image, activityId, imageIndex) {
-      var formData = new FormData();
-      formData.append('file', image);
-      return $http({
-        method: 'PUT',
-        url: 'http://fresh.ly/api/activities/' + activityId + '/images/' + imageIndex,
-        headers: {
-          "Content-Type": undefined
-        },
-        transformRequest: angular.identity,
-        data: formData,
-      });
+    updateImage: function(imageURI, activityId, imageIndex) {
+      
     }
   };
 });

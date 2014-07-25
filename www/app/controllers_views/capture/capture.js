@@ -21,7 +21,7 @@ angular.module('freshly.capture', [])
 
   // Object that holds photo to be taken
   $scope.imageData = {
-    imageURI: 'http://www.j2-con.com/sites/default/files/default_images/placeholder.jpg'
+    imageURI: 'https://d3hd2w1962vi3.cloudfront.net/7514fb83-5f2e-42eb-a921-19bfff415b27/placeholder.jpg'
   };
 
   // Default values on Capture page load

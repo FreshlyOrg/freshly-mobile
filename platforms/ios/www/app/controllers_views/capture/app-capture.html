@@ -1,9 +1,7 @@
-<ion-view title="Capture">
-  <ion-content class="has-header padding">
+  <ion-content class="padding">
 
     <!-- Displays currentPhoto after taken -->
-    <img class="capturePhoto">
-    </br>
+    <img class="capturePhoto" ng-if="imageData.imageURI" ng-src="{{imageData.imageURI}}" />
 
     <!-- Form to receive user-entered name and/or description -->
     <div class="list">
@@ -39,10 +37,8 @@
     <!-- Button that allows for choosing photo from album or taking phone -->
     <!-- Runs readURL (which is in a script in index.html) when photo selected -->
     <div style="position:relative">
-      <input type="file" onchange="readURL(this)" file-model="imageData.myFile"/>
-      <button class="button ion-android-camera uploadWrapper"> Take Photo</button>
+      <button ng-click="getPicture()" class="button ion-android-camera">Take Photo</button>
       <!-- Button that saves photo to db and returns to map -->
       <button ng-click="createPin()" class="button button-positive ion-android-location"> Create Pin</button>
     </div>
   </ion-content scroll="false">
-</ion-view>

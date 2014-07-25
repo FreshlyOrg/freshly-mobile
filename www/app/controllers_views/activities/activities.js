@@ -129,24 +129,6 @@ angular.module('freshly.activities', [])
     });
   };
 
-  // JASEN: Below uploadFile function should no longer be used as will be incorporated with getPicture
-  $scope.uploadFile = function(activity){
-    var image = $scope.imageData.myFile;
-    if (activity.imageIds.length === 0) {
-      Activities.addImage(image, activity['_id'])
-        .then($scope.refreshActivities)
-        .catch(function(err) {
-          console.log(err);
-        });
-    } else {
-      Activities.updateImage(image, activity['_id'], 0)
-        .then($scope.refreshActivities)
-        .catch(function(err) {
-          console.log(err);
-        });
-    }
-  };
-
   //Refreshes the activity list so it can be viewed
   $scope.activities = [];
   $scope.imageData = {};

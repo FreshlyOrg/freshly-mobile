@@ -1,10 +1,17 @@
 /* Custom scss code here */
+.top-spacing-capture {
+  margin-top: 40px; }
+
+.top-spacing-activities {
+  margin-top: 21px; }
+
 .capturePhoto {
   max-width: 100%;
   max-height: 35%;
   border-radius: 50%;
   display: block;
   margin: auto;
+  margin-bottom: 15px;
   -webkit-box-shadow: 3px 3px 3px 0px rgba(50, 50, 50, 0.8);
   -moz-box-shadow: 3px 3px 3px 0px rgba(50, 50, 50, 0.8);
   -ms-box-shadow: 3px 3px 3px 0px rgba(50, 50, 50, 0.8);

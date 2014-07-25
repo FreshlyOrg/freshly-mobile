@@ -47,6 +47,11 @@ angular.module('freshly.map', [
     }
   };
 
+  $scope.search = {};
+  $scope.changeText = function(){
+    $scope.filterActivities($scope.search.text);
+  }
+
   // get all activities from the server, sets the possible activities to $scope.activities and 
   // returns a callback with a boolean on completion
   var getActivities = function(callback) {
@@ -122,7 +127,6 @@ angular.module('freshly.map', [
       var result = [];
       for(var i = 0; i < array.length; i++){
         var regex = new RegExp(filter + ".*");
-        // if(array[i].description.match(regex)){
         if(regex.test(array[i].description) || regex.test(array[i].name)){
           result.push(array[i]);
         }

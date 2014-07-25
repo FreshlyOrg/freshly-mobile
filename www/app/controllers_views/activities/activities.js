@@ -11,7 +11,7 @@ angular.module('freshly.activities', [])
         controller: 'ActivitiesController'
       }
     }
-  })
+  });
 })
 
 .controller('ActivitiesController', function($scope, Activities, Capture) {
@@ -48,12 +48,12 @@ angular.module('freshly.activities', [])
       }
     }
     activity.newTag = '';
-  }
+  };
 
   //Allows users to remove currently existing tags
   $scope.removeTag = function(activity, tag) {
     activity.tags.splice(activity.tags.indexOf(tag),1);
-  }
+  };
 
   //Changes the activity view to allow editing
   $scope.editActivity = function(activity) {
@@ -92,20 +92,44 @@ angular.module('freshly.activities', [])
     }
   };
 
-  $scope.getPicture = function() {
+  $scope.getPicture = function(activity) {
     var cameraOptions = {
       //Returns file URI
       destinationType: 1
     };
 
+    console.log('[JASEN]-getPicture-activity:', activity);
+
     Capture.getPicture(cameraOptions).then(function(imageURI) {
+
+      console.log('[JASEN]-imageURI:, ', imageURI);
       $scope.imageData.imageURI = imageURI;
-      console.log($scope.imageData);
+
+      console.log('[JASEN]-$scope.imageData:', $scope.imageData);
+
+      return $scope.imageData;
+    }).then(function(imageData) {
+      var image = imageData.imageURI;
+
+      if (activity.imageIds.length === 0) {
+        Activities.addImage(image, activity['_id'])
+          .then($scope.refreshActivities)
+          .catch(function(err) {
+            console.log(err);
+          });
+      } else {
+        Activities.updateImage(image, activity['_id'], 0)
+          .then($scope.refreshActivities)
+          .catch(function(err) {
+            console.log(err);
+          });
+      }
     }).catch(function(err) {
       console.log(err);
     });
   };
 
+  // JASEN: Below uploadFile function should no longer be used as will be incorporated with getPicture
   $scope.uploadFile = function(activity){
     var image = $scope.imageData.myFile;
     if (activity.imageIds.length === 0) {

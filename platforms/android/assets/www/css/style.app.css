@@ -36,10 +36,10 @@ input[type=file] {
 .map-control {
   position: absolute;
   font-size: 20px;
-  color: grey;
-  bottom: 100px;
+  color: #444;
+  bottom: 65px;
   right: 5px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.8);
   padding: 8px 8px 5px 5px;
   border-radius: 3px;
   box-shadow: 2px 2px 2px #888888; }
@@ -50,11 +50,10 @@ input[type=file] {
 .pin-info {
   position: absolute;
   font-size: 20px;
-  color: grey;
-  bottom: 100px;
+  bottom: 65px;
   width: 97%;
   margin-left: 6px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 3px;
   box-shadow: 2px 2px 2px #888888; }
 
@@ -67,3 +66,41 @@ input[type=file] {
 
 .info-desc {
   font-size: 16px; }
+
+.search-control {
+  position: absolute;
+  top: 15px;
+  right: 0px; }
+
+.form-control {
+  position: absolute;
+  right: 5px;
+  margin: 100px auto 0;
+  -webkit-border-radius: 5px;
+  height: 34px;
+  font-size: 14px;
+  line-height: 1.42857;
+  box-sizing: border-box; }
+
+.form-control:focus {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-color: #66afe9;
+  outline: 0; }
+
+.search {
+  margin-top: 6px;
+  width: 20px;
+  transition: all 0.3s ease;
+  border: 1px solid #fff;
+  box-shadow: none;
+  background: url("https://d3hd2w1962vi3.cloudfront.net/c8573368-43a0-4fa7-85cd-3812cdc7a252/magnifiernew.png") no-repeat 5px 5px;
+  padding: 0 5px 0 35px; }
+
+.search:focus {
+  margin-top: 5px;
+  width: 300px;
+  border: 1px solid #eaeaea;
+  box-shadow: none;
+  transition: all 0.3s ease;
+  color: #444;
+  font-weight: 300; }

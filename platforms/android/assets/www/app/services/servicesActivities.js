@@ -1,6 +1,6 @@
 angular.module('freshly.servicesActivities', [])
 
-.factory('Activities', function($http) {
+.factory('Activities', function($http, $q) {
   return {
     getActivities: function() {
       return $http({
@@ -16,10 +16,10 @@ angular.module('freshly.servicesActivities', [])
         dataType: 'json'
       });
     },
-    getActivity: function(activity_id) {
+    getActivity: function(activityId) {
       return $http({
         method: 'GET',
-        url: 'http://fresh.ly/api/activities/' + activity_id
+        url: 'http://fresh.ly/api/activities/' + activityId
       });
     },
     updateActivity: function(activity) {
@@ -30,37 +30,42 @@ angular.module('freshly.servicesActivities', [])
         dataType: 'json'
       });
     },
-    deleteActivity: function(activity_id) {
+    deleteActivity: function(activityId) {
       return $http({
         method: 'DELETE',
-        url: 'http://fresh.ly/api/activities/' + activity_id
+        url: 'http://fresh.ly/api/activities/' + activityId
       });
     },
-    addImage: function(image, activity_id) {
-      var formData = new FormData();
-      formData.append('file', image);
-      return $http({
-        method: 'POST',
-        url: 'http://fresh.ly/api/activities/' + activity_id + '/images',
-        headers: {
-          "Content-Type": undefined
-        },
-        transformRequest: angular.identity,
-        data: formData,
-      });
+    addImage: function(imageURI, activityId) {
+      var serverURL = 'http://fresh.ly/api/activities/' + activityId + '/images';
+
+      var options = new FileUploadOptions();
+      options.fileKey = "post";
+      options.chunkedMode = false;
+      var ft = new FileTransfer();
+
+      //Returns a promise
+      var q = $q.defer()
+      ft.upload(imageURI, encodeURI(serverURL), function(result) {
+        q.resolve(result);
+      }, function(err) {
+        q.reject(err);
+      }, options);
+
+      return q.promise;
     },
-    updateImage: function(image, activity_id, imageIndex) {
+    updateImage: function(image, activityId, imageIndex) {
       var formData = new FormData();
       formData.append('file', image);
       return $http({
         method: 'PUT',
-        url: 'http://fresh.ly/api/activities/' + activity_id + '/images/' + imageIndex,
+        url: 'http://fresh.ly/api/activities/' + activityId + '/images/' + imageIndex,
         headers: {
           "Content-Type": undefined
         },
         transformRequest: angular.identity,
         data: formData,
       });
-    },
+    }
   };
 });

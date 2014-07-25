@@ -102,29 +102,22 @@ angular.module('freshly.activities', [])
 
 
     Capture.getPicture(cameraOptions).then(function(imageURI) {
-      console.log('[JASEN]-imageURI:,', imageURI);
       $scope.imageData.imageURI = imageURI;
 
-      // console.log('[JASEN]-activity:', activity);
-      console.log('[JASEN]-activity.imageIds:', activity.imageIds);
-      // console.log('[JASEN]-activity.imageIds.length:', activity.imageIds.length);
       if (activity.imageIds.length === 0) {
-        console.log('adding');
         Activities.addImage(imageURI, activity['_id'])
           .then($scope.refreshActivities)
           .catch(function(err) {
-            console.log(err);
           });
       } else {
-        console.log('updating');
         Activities.updateImage(imageURI, activity['_id'], 0)
           .then(function(response) {
-            console.log('responnnnssseee');
+            console.log('respooooooooooonse');
             console.log(response);
             $scope.refreshActivities();
           })
           .catch(function(err) {
-            console.log("errrrrrrorrrr");
+            console.log('errorrrrrrrrrrrrrr');
             console.log(err);
           });
       }

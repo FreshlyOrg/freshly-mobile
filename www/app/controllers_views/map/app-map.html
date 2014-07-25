@@ -4,7 +4,7 @@
       <div class="ion-navigate"></div>
     </div>
     <div class="search-control">
-      <input type="text" class=" form-control search" placeholder="Search">
+      <input id="map-search" type="text" ng-model="search.text" ng-change="changeText()" class="form-control search">
     </div>
     <div class="pin-info" ng-if="pinInfo">
       <div class="row">

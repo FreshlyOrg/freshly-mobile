@@ -16,7 +16,13 @@ angular.module('freshly.map', [
   });
 })
 
-.controller('MapController', function($scope, $state, Activities, LocationService, leafletData, leafletEvents) {
+.controller('MapController', function($scope, $state, $rootScope,  Activities, LocationService, leafletData, leafletEvents) {
+
+
+  $scope.search = {};
+  $scope.changeText = function(){
+    $scope.filterActivities($scope.search.text);
+  }
 
   // angular directive
   $scope.center = {
@@ -46,7 +52,7 @@ angular.module('freshly.map', [
   var getActivities = function(callback) {
     Activities.getActivities().then(function(response) {
       $scope.activities = response.data;
-      callback(true);
+      callback(response.data);
     }).catch(function(err) {
       console.log(err);
     });
@@ -62,8 +68,8 @@ angular.module('freshly.map', [
   // with a promise that returns the map object. 
   leafletData.getMap('map').then(function(map) {
 
-    console.log(leafletEvents);
-    
+    $scope.map = map;
+
     $scope.relocate = function(){
       map.panTo({lat: $scope.currCoords.latitude, lng: $scope.currCoords.longitude});
     };
@@ -107,48 +113,65 @@ angular.module('freshly.map', [
     // triggered anytime the map is moved in anyway (zoomed, panned, etc) as well as on instantiation
     map.on('move', function(e) {
 
-      getActivities(function(ready){
-        if(ready){
-          var activities = $scope.activities;
-
-          for (var i = 0; i < activities.length; i++) {
-            var m = markers[activities[i]._id];
-            if(!m){
-              var latlng = {
-                lat: activities[i].lat,
-                lng: activities[i].lng
-              }
-              if(LocationService.inBounds(latlng, map)){
-                var marker = new L.marker({lat: activities[i].lat,lng: activities[i].lng}, activities[i]);
-                marker.on("click", function() {
-                  $scope.$apply(function(){
-                    $scope.clicked = this.options;
-                    $scope.pinInfo = true;
-                  }.apply(this));
-                });
-                
-                markerGroup.addLayer(marker);
-                activities[i]._leaflet_id = marker._leaflet_id;
-                markers[activities[i]._id] = activities[i];
-              }
-            } else {
-              if(!LocationService.inBounds(activities[i], map)){
-                markerGroup.removeLayer(m._leaflet_id);
-                delete markers[m._id];
-              }
-            }
-          }// end for loop
-
-        }// end ready callback
+      getActivities(function(activities){
+        checkActivities(activities);
       });
     });
 
+    var filter = function(array, filter){
+      var result = [];
+      for(var i = 0; i < array.length; i++){
+        var regex = new RegExp(filter + ".*");
+        // if(array[i].description.match(regex)){
+        if(regex.test(array[i].description) || regex.test(array[i].name)){
+          result.push(array[i]);
+        }
+      }
+      return result;
+    }
+
+    $scope.filterActivities = function(searchText){
+      activities = $scope.activities;
+      var filteredActivities = filter(activities, searchText);
+      markerGroup.clearLayers();
+      markers = [];
+      checkActivities(filteredActivities);
+    }
+
+    var checkActivities = function(activities){
+      for (var i = 0; i < activities.length; i++) {
+        var m = markers[activities[i]._id];
+        if(!m){
+          var latlng = {
+            lat: activities[i].lat,
+            lng: activities[i].lng
+          }
+          if(LocationService.inBounds(latlng, map)){
+            var marker = new L.marker({lat: activities[i].lat,lng: activities[i].lng}, activities[i]);
+            marker.on("click", function() {
+              $scope.$apply(function(){
+                $scope.clicked = this.options;
+                $scope.pinInfo = true;
+              }.apply(this));
+            });
+            
+            markerGroup.addLayer(marker);
+            activities[i]._leaflet_id = marker._leaflet_id;
+            markers[activities[i]._id] = activities[i];
+          }
+        } else {
+          if(!LocationService.inBounds(activities[i], map)){
+            markerGroup.removeLayer(m._leaflet_id);
+            delete markers[m._id];
+          }
+        }
+      }// end for loop
+    }
   });
   
   $scope.closeInfo = function(){
     $scope.pinInfo = false;
   }
 
+
 });
-
-

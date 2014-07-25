@@ -128,41 +128,41 @@ angular.module('freshly.capture', [])
     });
   };
 
-  /*
-  Opens camera and allows for photo to be taken and returns photo
-  $scope.openCamera = function () {
-    Camera.getPicture().then(function(imageURI) {
-      // console.log(imageURI);
-      $scope.currentPhoto = imageURI;
-    }, function(err) {
-      console.err(err);
-    } , {
-      quality: 75,
-      targetWidth: 320,
-      targetHeight: 320,
-      saveToPhotoAlbum: false
-    });
-  };
-  */
-
   // Send new experience to db and return to app.map state
   $scope.createPin = function () {
     Activities.addActivity($scope.activity).then(function(response) {
-      console.log('[JASEN] Response:', response);
-      console.log('[JASEN] Response.data:', response.data);
-      console.log('[JASEN] Response..._id:', response.data.activity[0]._id);
-      console.log('[JASEN] imageData.myFile:', $scope.imageData.myFile);
+      console.log('activity ID', response.data.activity[0]._id);
+      console.log('imageData.URI:', $scope.imageData.URI);
 
-      var image = $scope.imageData.myFile;
+      // var sendImage = function(imageURI, activityId) {
+      //   var options = new FileUploadOptions();
+      //   options.fileKey = "post";
+      //   options.chunkedMode = false;
+      //   var ft = new FileTransfer();
+      //   var onSuccess = function() {
+      //     console.log("SUCCESS");
+      //   };
+      //   var onFail = function(err) {
+      //     console.log(err);
+      //   };
+      //   ft.upload(imageURI, encodeURI('http://fresh.ly/api/activities/' + activityId + '/images'), onSuccess, onFail, options);
+      // };
+
+      var imageURI = $scope.imageData.imageURI;
 
       // If there is an image send to server
-      if (image) {
-        Activities.addImage(image, response.data.activity[0]._id);
+      if (imageURI) {
+        // sendImage(imageURI, response.data.activity[0]._id)
+        Activities.addImage(imageURI, response.data.activity[0]._id).then(function(result) {
+          console.log('Successfully uploaded activity image');
+        }).catch(function(err) {
+          console.log(err);
+        });
       }
 
       $state.go('app.map');
     }).catch(function(err) {
-      console.err(err);
+      console.log(err);
     });
   };
 

@@ -27,6 +27,10 @@
                         {
                             "xml": "<feature name=\"FileTransfer\"><param name=\"ios-package\" value=\"CDVFileTransfer\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Camera\"><param name=\"ios-package\" value=\"CDVCamera\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -36,13 +40,31 @@
                     "AssetsLibrary.framework": [
                         {
                             "xml": "false",
-                            "count": 2
+                            "count": 3
                         }
                     ],
                     "MobileCoreServices.framework": [
                         {
                             "xml": "false",
+                            "count": 2
+                        }
+                    ],
+                    "ImageIO.framework": [
+                        {
+                            "xml": "true",
                             "count": 1
+                        }
+                    ],
+                    "CoreLocation.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "CoreGraphics.framework": [
+                        {
+                            "xml": "false",
+                            "count": 2
                         }
                     ]
                 }
@@ -63,6 +85,9 @@
             "PACKAGE_NAME": "com.ionicframework.rebuild833849"
         },
         "org.apache.cordova.file-transfer": {
+            "PACKAGE_NAME": "com.ionicframework.rebuild833849"
+        },
+        "org.apache.cordova.camera": {
             "PACKAGE_NAME": "com.ionicframework.rebuild833849"
         }
     },

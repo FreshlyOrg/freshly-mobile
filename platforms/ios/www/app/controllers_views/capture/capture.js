@@ -14,7 +14,7 @@ angular.module('freshly.capture', [])
   });
 })
 
-.controller('CaptureController', function($scope, Camera, Activities, $state, $stateParams) {
+.controller('CaptureController', function($scope, Capture, Activities, $state, $stateParams) {
 
   // Object that holds all activity properties
   $scope.activity = {};
@@ -114,9 +114,18 @@ angular.module('freshly.capture', [])
     });
   }
 
-  // JASEN: DOES NOT WORK!!
-  $scope.renderPicture = function (input) {
-    Camera.renderPicture(input);
+  $scope.getPicture = function() {
+    var cameraOptions = {
+      //Returns file URI
+      destinationType: 1
+    };
+
+    Capture.getPicture(cameraOptions).then(function(imageURI) {
+      $scope.imageData.imageURI = imageURI;
+      console.log($scope.imageData);
+    }).catch(function(err) {
+      console.log(err);
+    });
   };
 
   /*

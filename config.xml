@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.rebuild833849" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>rebuild</name>
+  <name>Freshly</name>
   <description>
-        An Ionic Framework and Cordova project.
+        Freshly allows users to capture, explore and share activities and experiences all around us.
     </description>
   <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
+      Greg Trowbridge, Jake Adams and Jasen Lew
     </author>
   <content src="index.html"/>
   <access origin="*"/>

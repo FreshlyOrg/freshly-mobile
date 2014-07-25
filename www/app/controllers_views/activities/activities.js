@@ -14,7 +14,7 @@ angular.module('freshly.activities', [])
   })
 })
 
-.controller('ActivitiesController', function($scope, Activities) {
+.controller('ActivitiesController', function($scope, Activities, Capture) {
 
   //Gets the activities list from the database
   //so the view can be updated
@@ -90,6 +90,20 @@ angular.module('freshly.activities', [])
         console.log(err);
       });
     }
+  };
+
+  $scope.getPicture = function() {
+    var cameraOptions = {
+      //Returns file URI
+      destinationType: 1
+    };
+
+    Capture.getPicture(cameraOptions).then(function(imageURI) {
+      $scope.imageData.imageURI = imageURI;
+      console.log($scope.imageData);
+    }).catch(function(err) {
+      console.log(err);
+    });
   };
 
   $scope.uploadFile = function(activity){

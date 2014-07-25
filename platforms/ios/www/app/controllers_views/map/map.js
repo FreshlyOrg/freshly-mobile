@@ -36,7 +36,8 @@ angular.module('freshly.map', [
   $scope.tiles = {
     url: "https://{s}.tiles.mapbox.com/v3/jakecadams.io9ec4o2/{z}/{x}/{y}.png",
     options: {
-        attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms</a>'
+        attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms</a>',
+        detectRetina: true
     }
   };
 

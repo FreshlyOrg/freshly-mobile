@@ -55,7 +55,22 @@ angular.module('freshly.servicesActivities', [])
       return q.promise;
     },
     updateImage: function(imageURI, activityId, imageIndex) {
-      
+      var serverURL = 'http://fresh.ly/api/activities/' + activityId + '/images/' + imageIndex;
+
+      var options = new FileUploadOptions();
+      options.fileKey = "put";
+      options.chunkedMode = false;
+      var ft = new FileTransfer();
+
+      //Returns a promise
+      var q = $q.defer()
+      ft.upload(imageURI, encodeURI(serverURL), function(result) {
+        q.resolve(result);
+      }, function(err) {
+        q.reject(err);
+      }, options);
+
+      return q.promise;
     }
   };
 });

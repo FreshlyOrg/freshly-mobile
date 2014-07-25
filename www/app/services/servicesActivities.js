@@ -40,7 +40,7 @@ angular.module('freshly.servicesActivities', [])
       var serverURL = 'http://fresh.ly/api/activities/' + activityId + '/images';
 
       var options = new FileUploadOptions();
-      options.fileKey = "post";
+      options.httpMethod = "POST";
       options.chunkedMode = false;
       var ft = new FileTransfer();
 
@@ -58,17 +58,19 @@ angular.module('freshly.servicesActivities', [])
       var serverURL = 'http://fresh.ly/api/activities/' + activityId + '/images/' + imageIndex;
 
       var options = new FileUploadOptions();
-      options.fileKey = "put";
+      options.httpMethod = "PUT";
       options.chunkedMode = false;
       var ft = new FileTransfer();
 
       //Returns a promise
-      var q = $q.defer()
+      var q = $q.defer();
       ft.upload(imageURI, encodeURI(serverURL), function(result) {
         q.resolve(result);
       }, function(err) {
         q.reject(err);
       }, options);
+
+      console.log('Sent image to server.');
 
       return q.promise;
     }

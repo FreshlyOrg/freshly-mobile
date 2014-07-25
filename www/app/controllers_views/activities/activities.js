@@ -93,34 +93,31 @@ angular.module('freshly.activities', [])
   };
 
   $scope.getPicture = function(activity) {
+    console.log('[JASEN]-getPicture-activity:', activity);
+
     var cameraOptions = {
       //Returns file URI
       destinationType: 1
     };
 
-    console.log('[JASEN]-getPicture-activity:', activity);
 
     Capture.getPicture(cameraOptions).then(function(imageURI) {
-
-      console.log('[JASEN]-imageURI:, ', imageURI);
       $scope.imageData.imageURI = imageURI;
 
-      console.log('[JASEN]-$scope.imageData:', $scope.imageData);
-
-      return $scope.imageData;
-    }).then(function(imageData) {
-      var image = imageData.imageURI;
-
       if (activity.imageIds.length === 0) {
-        Activities.addImage(image, activity['_id'])
+        Activities.addImage(imageURI, activity['_id'])
           .then($scope.refreshActivities)
           .catch(function(err) {
-            console.log(err);
           });
       } else {
-        Activities.updateImage(image, activity['_id'], 0)
-          .then($scope.refreshActivities)
+        Activities.updateImage(imageURI, activity['_id'], 0)
+          .then(function(response) {
+            console.log('respooooooooooonse');
+            console.log(response);
+            $scope.refreshActivities();
+          })
           .catch(function(err) {
+            console.log('errorrrrrrrrrrrrrr');
             console.log(err);
           });
       }

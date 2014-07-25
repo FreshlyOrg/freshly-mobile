@@ -114,14 +114,10 @@ angular.module('freshly.capture', [])
     });
   }
 
-  // JASEN: DOES NOT WORK!!
-  $scope.renderPicture = function (input) {
-    Camera.renderPicture(input);
-  };
-
   $scope.getPicture = function() {
     var cameraOptions = {
-      destinationType: Camera.DestinationType.FILE_URI
+      //Returns file URI
+      destinationType: 1
     };
 
     Capture.getPicture(cameraOptions).then(function(imgURI) {

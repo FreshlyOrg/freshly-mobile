@@ -40,9 +40,15 @@
 /home/greg/freshly/freshly-mobile/platforms/android/assets/www/css \
 /home/greg/freshly/freshly-mobile/platforms/android/assets/www/img/ionic.png \
 /home/greg/freshly/freshly-mobile/platforms/android/assets/www/plugins/org.apache.cordova.device \
+/home/greg/freshly/freshly-mobile/platforms/android/assets/www/plugins/org.apache.cordova.camera \
 /home/greg/freshly/freshly-mobile/platforms/android/assets/www/plugins/com.ionic.keyboard \
 /home/greg/freshly/freshly-mobile/platforms/android/assets/www/plugins/org.apache.cordova.device/www \
 /home/greg/freshly/freshly-mobile/platforms/android/assets/www/plugins/org.apache.cordova.device/www/device.js \
+/home/greg/freshly/freshly-mobile/platforms/android/assets/www/plugins/org.apache.cordova.camera/www \
+/home/greg/freshly/freshly-mobile/platforms/android/assets/www/plugins/org.apache.cordova.camera/www/CameraConstants.js \
+/home/greg/freshly/freshly-mobile/platforms/android/assets/www/plugins/org.apache.cordova.camera/www/CameraPopoverHandle.js \
+/home/greg/freshly/freshly-mobile/platforms/android/assets/www/plugins/org.apache.cordova.camera/www/CameraPopoverOptions.js \
+/home/greg/freshly/freshly-mobile/platforms/android/assets/www/plugins/org.apache.cordova.camera/www/Camera.js \
 /home/greg/freshly/freshly-mobile/platforms/android/assets/www/plugins/com.ionic.keyboard/www \
 /home/greg/freshly/freshly-mobile/platforms/android/assets/www/plugins/com.ionic.keyboard/www/keyboard.js \
 /home/greg/freshly/freshly-mobile/platforms/android/assets/www/app/services \
@@ -51,8 +57,8 @@
 /home/greg/freshly/freshly-mobile/platforms/android/assets/www/app/app.html \
 /home/greg/freshly/freshly-mobile/platforms/android/assets/www/app/directives \
 /home/greg/freshly/freshly-mobile/platforms/android/assets/www/app/services/servicesMap.js \
-/home/greg/freshly/freshly-mobile/platforms/android/assets/www/app/services/servicesCamera.js \
 /home/greg/freshly/freshly-mobile/platforms/android/assets/www/app/services/servicesActivities.js \
+/home/greg/freshly/freshly-mobile/platforms/android/assets/www/app/services/servicesCapture.js \
 /home/greg/freshly/freshly-mobile/platforms/android/assets/www/app/controllers_views/map \
 /home/greg/freshly/freshly-mobile/platforms/android/assets/www/app/controllers_views/capture \
 /home/greg/freshly/freshly-mobile/platforms/android/assets/www/app/controllers_views/activities \

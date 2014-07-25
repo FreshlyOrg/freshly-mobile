@@ -15,12 +15,19 @@
     <feature name="Camera">
         <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
     </feature>
-    <name>rebuild</name>
+    <feature name="File">
+        <param name="android-package" value="org.apache.cordova.file.FileUtils" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="FileTransfer">
+        <param name="android-package" value="org.apache.cordova.filetransfer.FileTransfer" />
+    </feature>
+    <name>Freshly</name>
     <description>
-        An Ionic Framework and Cordova project.
+        Freshly allows users to capture, explore and share activities and experiences all around us.
     </description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
+      Greg Trowbridge, Jake Adams and Jasen Lew
     </author>
     <content src="index.html" />
     <access origin="*" />

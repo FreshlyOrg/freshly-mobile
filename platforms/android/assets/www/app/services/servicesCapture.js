@@ -5,6 +5,7 @@ angular.module('freshly.servicesCapture', [])
       getPicture: function(options) {
         var q = $q.defer();
 
+        //Returns a promise
         navigator.camera.getPicture(function(result) {
           q.resolve(result);
         }, function(err) {

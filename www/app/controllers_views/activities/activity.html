@@ -6,12 +6,12 @@
   </div>
   <div class="item item-body" ng-if="viewActivity === activity._id">
     <div class="item-image">
-      <!-- <img class="full-image" style="width:50%" src="http://fresh.ly/api/activities/{{activity._id}}/images/0" /> -->
-      <img class="capturePhoto" ng-if="imageData.imageURI" ng-src="{{imageData.imageURI}}"/>
+      <img class="full-image" ng-if="!imageData.imageURI" ng-src="http://fresh.ly/api/activities/{{activity._id}}/images/0" />
+      <img class="full-image" ng-if="imageData.imageURI" ng-src="{{imageData.imageURI}}"/>
     </div>
 
-    <button ng-click="getPicture()" class="button-small ion-android-camera"> Take Photo</button>
-    <button ng-click="uploadFile(activity)">upload me</button>
+    <button ng-click="getPicture(activity)" class="button-small ion-android-camera"> Take Photo</button>
+    <!-- <button ng-click="uploadFile(activity)">upload me</button> -->
 
     <label class="item item-input">
       <span class="input-label">Description</span>

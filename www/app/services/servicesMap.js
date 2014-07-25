@@ -31,7 +31,7 @@ angular.module('freshly.servicesMap', [])
           }, {
             // radius: coords.accuracy/2,
             radius: 10,
-            fillColor: 'rgb(51, 146, 213)',
+            fillColor: '#2A94D6',
             color: 'rgb(51, 146, 213)'
         });
       }

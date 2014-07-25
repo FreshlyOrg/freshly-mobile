@@ -1,4 +1,42 @@
 /* Custom scss code here */
+/*COLOR SCHEME*/
+/*COLOR SCHEME*/
+.default {
+  background-color: #F0F1F2;
+  color: #444;
+  margin: 0px 5px 0px 5px; }
+
+.light {
+  background-color: #F0F1F2;
+  color: #444;
+  margin: 0px 5px 0px 5px; }
+
+#search-activities {
+  padding-right: 5px; }
+
+.primary {
+  background-color: #2A94D6;
+  color: #FFFFFF;
+  margin: 0px 5px 0px 5px; }
+
+.bright-text {
+  color: #2A94D6; }
+
+.input-label {
+  color: #344A5F;
+  font-size: 16px; }
+
+#input-value {
+  color: #444;
+  background-color: white;
+  font-size: 14px; }
+
+.tabs {
+  background-color: #F0F1F2; }
+
+.tab-icons {
+  color: #344A5F; }
+
 .top-spacing-capture {
   margin-top: 40px; }
 
@@ -66,17 +104,19 @@ input[type=file] {
 
 .info-close {
   font-size: 12px;
-  margin-right: 10px; }
+  margin-right: 10px;
+  color: #444; }
 
 .info-name {
-  color: #2883BC; }
+  color: #2A94D6; }
 
 .info-desc {
-  font-size: 16px; }
+  font-size: 16px;
+  color: #444; }
 
 .search-control {
   position: absolute;
-  top: 15px;
+  top: 20px;
   right: 0px; }
 
 .form-control {

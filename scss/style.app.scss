@@ -7,6 +7,61 @@
   border-radius: $prop;
 }
 
+/*COLOR SCHEME*/
+$dark: #444 !default;
+$primary: #344A5F !default;
+$bright: #2A94D6 !default;
+$default: #DBE6EC !default;
+$light: #F0F1F2 !default;
+$white: #FFFFFF !default;
+/*COLOR SCHEME*/
+
+.default {
+  background-color: $light;
+  color: $dark;
+  margin: 0px 5px 0px 5px;
+}
+
+.light {
+  background-color: $light;
+  color: $dark;
+  margin: 0px 5px 0px 5px;
+}
+#search-activities {
+  padding-right: 5px;
+}
+
+.activity-title {
+color:#2A94D6;font-weight:350;font-size:20px;background-color:white;
+}
+
+.primary {
+  background-color: $bright;
+  color: $white;
+  margin: 0px 5px 0px 5px;
+}
+.bright-text {
+  color: $bright;
+}
+
+.input-label {
+  color: $primary;
+  font-size: 16px;
+}
+
+#input-value{
+  color: $dark;
+  background-color: white;
+  font-size: 14px;
+}
+
+.tabs {
+  background-color: $light;
+}
+.tab-icons {
+  color: $primary;
+}
+
 .top-spacing-capture {
   margin-top: 40px;
 }
@@ -54,7 +109,7 @@ input[type=file] {
 .map-control{
   position: absolute;
   font-size: 20px;
-  color: #444;
+  color: $dark;
   bottom: 65px;
   right: 5px;
   background-color:rgba(255,255,255,0.8);
@@ -80,19 +135,21 @@ input[type=file] {
 .info-close {
   font-size: 12px;
   margin-right: 10px;
+  color: $dark;
 }
 
 .info-name {
-  color: #2883BC;
+  color: $bright;
 }
 .info-desc {
   font-size: 16px;
+  color: $dark;
 }
 
 
 .search-control{
   position: absolute;
-  top: 15px;
+  top: 20px;
   right: 0px;
 }
 

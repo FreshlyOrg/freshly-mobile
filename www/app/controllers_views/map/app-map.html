@@ -9,7 +9,7 @@
     <div class="pin-info" ng-if="pinInfo">
       <div class="row">
         <div class="col-25">
-          <img class="full-image" style="width:100%" src="http://fresh.ly/api/activities/{{clicked._id}}/images/0"/>
+          <img class="full-image" style="width:100%;border-radius: 3px;" src="http://fresh.ly/api/activities/{{clicked._id}}/images/0"/>
         </div>
         <div class="col-70" style="width:100%;">
           <div class="row info-name">
@@ -19,7 +19,7 @@
             {{clicked.description}}
           </div>
         </div>
-        <div class="col-5">
+        <div class="col-7">
           <div class="ion-close info-close" ng-click="closeInfo()"></div>
         </div>
       </div>

@@ -10,4 +10,7 @@
 /home/greg/freshly/freshly-mobile/platforms/android/ant-build/classes/com/ionicframework/rebuild833849/R$attr.class \
 /home/greg/freshly/freshly-mobile/platforms/android/ant-build/classes/com/ionicframework/rebuild833849/BuildConfig.class \
 /home/greg/freshly/freshly-mobile/platforms/android/ant-build/classes/org/apache/cordova/device/Device.class \
+/home/greg/freshly/freshly-mobile/platforms/android/ant-build/classes/org/apache/cordova/camera/ExifHelper.class \
+/home/greg/freshly/freshly-mobile/platforms/android/ant-build/classes/org/apache/cordova/camera/FileHelper.class \
+/home/greg/freshly/freshly-mobile/platforms/android/ant-build/classes/org/apache/cordova/camera/CameraLauncher.class \
 /home/greg/freshly/freshly-mobile/platforms/android/ant-build/dexedLibs/classes-f9c9f0ad5fc2365be7b3668e4ac5d220.jar \

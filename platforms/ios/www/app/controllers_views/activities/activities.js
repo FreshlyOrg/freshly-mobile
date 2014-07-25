@@ -93,58 +93,44 @@ angular.module('freshly.activities', [])
   };
 
   $scope.getPicture = function(activity) {
+    console.log('[JASEN]-getPicture-activity:', activity);
+
     var cameraOptions = {
       //Returns file URI
       destinationType: 1
     };
 
-    console.log('[JASEN]-getPicture-activity:', activity);
 
     Capture.getPicture(cameraOptions).then(function(imageURI) {
-
-      console.log('[JASEN]-imageURI:, ', imageURI);
+      console.log('[JASEN]-imageURI:,', imageURI);
       $scope.imageData.imageURI = imageURI;
 
-      console.log('[JASEN]-$scope.imageData:', $scope.imageData);
-
-      return $scope.imageData;
-    }).then(function(imageData) {
-      var image = imageData.imageURI;
-
+      // console.log('[JASEN]-activity:', activity);
+      console.log('[JASEN]-activity.imageIds:', activity.imageIds);
+      // console.log('[JASEN]-activity.imageIds.length:', activity.imageIds.length);
       if (activity.imageIds.length === 0) {
-        Activities.addImage(image, activity['_id'])
+        console.log('adding');
+        Activities.addImage(imageURI, activity['_id'])
           .then($scope.refreshActivities)
           .catch(function(err) {
             console.log(err);
           });
       } else {
-        Activities.updateImage(image, activity['_id'], 0)
-          .then($scope.refreshActivities)
+        console.log('updating');
+        Activities.updateImage(imageURI, activity['_id'], 0)
+          .then(function(response) {
+            console.log('responnnnssseee');
+            console.log(response);
+            $scope.refreshActivities();
+          })
           .catch(function(err) {
+            console.log("errrrrrrorrrr");
             console.log(err);
           });
       }
     }).catch(function(err) {
       console.log(err);
     });
-  };
-
-  // JASEN: Below uploadFile function should no longer be used as will be incorporated with getPicture
-  $scope.uploadFile = function(activity){
-    var image = $scope.imageData.myFile;
-    if (activity.imageIds.length === 0) {
-      Activities.addImage(image, activity['_id'])
-        .then($scope.refreshActivities)
-        .catch(function(err) {
-          console.log(err);
-        });
-    } else {
-      Activities.updateImage(image, activity['_id'], 0)
-        .then($scope.refreshActivities)
-        .catch(function(err) {
-          console.log(err);
-        });
-    }
   };
 
   //Refreshes the activity list so it can be viewed

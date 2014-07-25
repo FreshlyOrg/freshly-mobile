@@ -1,4 +1,4 @@
-  <ion-content class="padding">
+  <ion-content class="padding top-spacing-capture">
 
     <!-- Displays currentPhoto after taken -->
     <img class="capturePhoto" ng-if="imageData.imageURI" ng-src="{{imageData.imageURI}}" />
@@ -37,7 +37,7 @@
     <!-- Button that allows for choosing photo from album or taking phone -->
     <!-- Runs readURL (which is in a script in index.html) when photo selected -->
     <div style="position:relative">
-      <button ng-click="getPicture()" class="button ion-android-camera">Take Photo</button>
+      <button ng-click="getPicture()" class="button ion-android-camera"> Take Photo</button>
       <!-- Button that saves photo to db and returns to map -->
       <button ng-click="createPin()" class="button button-positive ion-android-location"> Create Pin</button>
     </div>

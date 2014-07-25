@@ -120,8 +120,9 @@ angular.module('freshly.capture', [])
       destinationType: 1
     };
 
-    Capture.getPicture(cameraOptions).then(function(imgURI) {
-      console.log(imageURI);
+    Capture.getPicture(cameraOptions).then(function(imageURI) {
+      $scope.imageData.imageURI = imageURI;
+      console.log($scope.imageData);
     }).catch(function(err) {
       console.log(err);
     });

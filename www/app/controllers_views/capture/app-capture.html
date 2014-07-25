@@ -2,8 +2,7 @@
   <ion-content class="has-header padding">
 
     <!-- Displays currentPhoto after taken -->
-    <img class="capturePhoto">
-    </br>
+    <img class="capturePhoto" ng-if="imageData.imageURI" ng-src="{{imageData.imageURI}}" />
 
     <!-- Form to receive user-entered name and/or description -->
     <div class="list">
